@@ -221,7 +221,13 @@ function create_config( )
     "get",
     "broadcast",
     "download_media",
+    "calculator",
+    "filterorg",
+    "lock_badw",
+    "lock_link",
     "invite",
+    "welcome",
+    "time",
     "all",
     "leave_ban",
     "admin"
