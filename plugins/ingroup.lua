@@ -1146,9 +1146,9 @@ local function run(msg, matches)
         return set_descriptionmod(msg, data, target, about)
       end
     end
-    if matches[1] == 'lock' then
+    if matches[1] == 'قفل' then
       local target = msg.to.id
-      if matches[2] == 'name' then
+      if matches[2] == 'نام' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked name ")
         return lock_group_namemod(msg, data, target)
       end
@@ -1156,11 +1156,11 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked member ")
         return lock_group_membermod(msg, data, target)
         end
-      if matches[2] == 'flood' then
+      if matches[2] == 'اسپم' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked flood ")
         return lock_group_floodmod(msg, data, target)
       end
-      if matches[2] == 'bots' then
+      if matches[2] == 'ربات ها' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] locked bots ")
         return lock_group_bots(msg, data, target)
       end
@@ -1185,9 +1185,9 @@ local function run(msg, matches)
        return lock_group_leave(msg, data, target)
      end
    end
-    if matches[1] == 'unlock' then 
+    if matches[1] == 'بازکردن' then 
       local target = msg.to.id
-      if matches[2] == 'name' then
+      if matches[2] == 'نام' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked name ")
         return unlock_group_namemod(msg, data, target)
       end
@@ -1203,7 +1203,7 @@ local function run(msg, matches)
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked flood ")
         return unlock_group_floodmod(msg, data, target)
       end
-      if matches[2] == 'botsbots' then
+      if matches[2] == 'ربات  ها' then
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] unlocked bots ")
         return unlock_group_bots(msg, data, target)
       end
@@ -1447,13 +1447,13 @@ return {
   "^(تنزل) (.*)$",
   "^(تنزل)",
   "^(تنظیم) ([^%s]+) (.*)$",
-  "^([Ll]ock) (.*)$",
+  "^(قفل) (.*)$",
   "^(دارنده) (%d+)$",
   "^(دارنده)",
   "^(صاحب گروه)$",
   "^(کد) (.*)$",
   "^(صاحب) (%d+) (%d+)$",-- (group id) (leader id)
-  "^([Uu]nlock) (.*)$",
+  "^(بازکردن) (.*)$",
   "^(حساسیت) (%d+)$",
   "^(تنظیمات)$",
 -- "^(public) (.*)$",
@@ -1469,8 +1469,3 @@ return {
   run = run
 }
 end
-
-    Status API Training Shop Blog About Pricing 
-
-    © 2016 GitHub, Inc. Terms Privacy Security Contact Help 
-
