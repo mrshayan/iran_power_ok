@@ -229,7 +229,6 @@ function create_config( )
     "support",
     "lock_english",
     "chatbot",
-    "anti-bot",
     "tag",
     "id",
     "tagall",
