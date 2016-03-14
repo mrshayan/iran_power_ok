@@ -32,9 +32,9 @@ end
 
 return {
   description = "Searches Google and send results",
-  usage = "google [terms]: Searches Google and send results",
+  usage = "سرچ [terms]: Searches Google and send results",
   patterns = {
-    "^[Gg]oogle (.*)$",
+    "^سرچ (.*)$",
   },
   run = run
 }
