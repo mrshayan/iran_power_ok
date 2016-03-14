@@ -59,11 +59,11 @@ end
 local function run(msg, matches)
 	local receiver = get_receiver(msg)
 	-- Enable a channel
-	if matches[1] == 'on' then
+	if matches[1] == 'روشن' then
 		return enable_channel(receiver)
 	end
 	-- Disable a channel
-	if matches[1] == 'off' then
+	if matches[1] == 'خاموش' then
 		return disable_channel(receiver)
 	end
 end
@@ -71,11 +71,11 @@ end
 return {
 	description = "Robot Switch", 
 	usage = {
-		"روشن کردن : enable robot in group",
-		"خاموش کردن : disable robot in group" },
+		"بات روشن : enable robot in group",
+		"بات خاموش : disable robot in group" },
 	patterns = {
 		"^بات? (روشن)",
-		"^بات? (خاموش)", }, 
+		"^بات? (خاموش)" }, 
 	run = run,
 	privileged = true,
 	--moderated = true,
