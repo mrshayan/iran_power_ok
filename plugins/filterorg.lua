@@ -112,7 +112,7 @@ function run( msg, matches )
     end
   elseif ( matches[1] == "rmall" ) then
     ClearWords( DData, msg )
-  elseif ( matches[1] == "لیست فیلتر" ) then
+  elseif ( matches[1] == "listft" ) then
     TempString = "لیست کلمات فیلتر شده: \n_________________________\n"
     for k,v in pairs( DData[tostring(msg.to.id)]["settings"]["Blocked_Words"] ) do
       TempString = TempString .. tostring(k) .. " - " .. v .. " \n"
@@ -128,10 +128,10 @@ end
 
 return {
   patterns = {
-    "^[Ff]ilter (.+) (%d+)$",
-    "^[Ff]ilter (.+) (.+)$",
-    "^[Ff]ilter (.+)$",
-    "^لیست فیلتر$"
+    "^([/!]filter) (.+) (%d+)$",
+    "^([/!]filter) (.+) (.+)$",
+    "^([/!]filter) (.+)$",
+    "^[!/](listft)$"
     },
     run = run
 } 
