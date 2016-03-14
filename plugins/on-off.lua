@@ -71,11 +71,11 @@ end
 return {
 	description = "Robot Switch", 
 	usage = {
-		"/bot on : enable robot in group",
-		"/bot off : disable robot in group" },
+		"روشن کردن : enable robot in group",
+		"خاموش کردن : disable robot in group" },
 	patterns = {
-		"^[!/]bot? (on)",
-		"^[!/]bot? (off)" }, 
+		"^بات? (روشن)",
+		"^بات? (خاموش)", }, 
 	run = run,
 	privileged = true,
 	--moderated = true,
