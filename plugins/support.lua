@@ -26,7 +26,7 @@ end
 return {
   description = "support", 
   patterns = {
-    "^[!/](support)$"
+    "^[Ss]upport$"
   }, 
   run = run 
 }
