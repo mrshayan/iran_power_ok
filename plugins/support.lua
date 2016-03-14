@@ -24,9 +24,9 @@ local function run(msg, matches)
 end
 
 return {
-  description = "support", 
+  description = "دعوت ادمین بات", 
   patterns = {
-    "^[Ss]upport$"
+    "^دعوت ادمین بات$"
   }, 
   run = run 
 }
