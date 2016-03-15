@@ -97,7 +97,7 @@ local function run(msg, matches)
     savelog(msg.to.id, name.." ["..msg.from.id.."] used /teleseed ")
     return about
   end 
-  if matches[1]:lower() == "statslist" then
+  if matches[1]:lower() == "لیست اعضا" then
     if not is_momod(msg) then
       return "For mods only !"
     end
@@ -106,7 +106,7 @@ local function run(msg, matches)
     savelog(msg.to.id, name.." ["..msg.from.id.."] requested group stats ")
     return chat_stats2(chat_id)
   end
-  if matches[1]:lower() == "stats" then
+  if matches[1]:lower() == "امار" then
     if not matches[2] then
       if not is_momod(msg) then
         return "For mods only !"
@@ -138,8 +138,8 @@ local function run(msg, matches)
 end
 return {
   patterns = {
-    "^[!/]([Ss]tats)$",
-    "^[!/]([Ss]tatslist)$",
+    "^امار$",
+    "^لیست اعضا$",
     "^[!/]([Ss]tats) (group) (%d+)",
     "^[!/]([Ss]tats) (teleseed)",-- Put everything you like :)
 		"^[!/]([Tt]eleseed)"-- Put everything you like :)
