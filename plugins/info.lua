@@ -131,7 +131,7 @@ setrank(result, result.from.id, value)
 end
 
 local function run(msg, matches)
- if matches[1]:lower() == 'setrank' then
+ if matches[1]:lower() == 'تنظیم مقام' then
   local hash = 'usecommands:'..msg.from.id..':'..msg.to.id
   redis:incr(hash)
   if not is_sudo(msg) then
@@ -218,13 +218,13 @@ return {
 	'(Reply)اینفو: Return info of replied user if used by reply.',
 	'اینفو <id>: Return the info\'s of the <id>.',
 	'اینفو @<user_name>: Return the member @<user_name> information from the current chat.',
-	'setrank <userid> <rank>: change members rank.',
-	'(Reply)setrank <rank>: change members rank.',
+	'تنظیم مقام <userid> <rank>: change members rank.',
+	'(Reply)تنظیم مقام <rank>: change members rank.',
   },
   patterns = {
   	"^اینفو$",
-	"^[Ss]etrank (%d+) (.*)$",
-	"^[Ss]etrank (%d+) (.*)$",
+	"^تنظیم مقام (%d+) (.*)$",
+	"^تنظیم مقام (%d+) (.*)$",
   },
   run = run
 }
