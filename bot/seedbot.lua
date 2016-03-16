@@ -227,6 +227,7 @@ function create_config( )
     "tooti",
     "version",
     "support",
+    "bot_manager",
     "lock_english",
     "chatbot",
     "tag",
