@@ -4,7 +4,7 @@ local Dev = 122774063 --put your id here(BOT OWNER ID)
 local function setrank(msg, name, value) -- setrank function
   local hash = nil
   if msg.to.type == 'chat' then
-    hash = 'مقام:'..msg.to.id..':variables'
+    hash = 'rank:'..msg.to.id..':variables'
   end
   if hash then
     redis:hset(hash, name, value)
@@ -21,7 +21,7 @@ local function res_user_callback(extra, success, result) -- /info <username> fun
     local text = 'نام کامل : '..(result.first_name or '')..' '..(result.last_name or '')..'\n'
                ..'یوزر: '..Username..'\n'
                ..'ایدی کاربری : '..result.id..'\n\n'
-	local hash = 'مقام:'..extra.chat2..':variables'
+	local hash = 'rank:'..extra.chat2..':variables'
 	local value = redis:hget(hash, result.id)
     if not value then
 	 if result.id == tonumber(Dev) then
@@ -60,7 +60,7 @@ local function action_by_id(extra, success, result)  -- /info <ID> function
     local text = 'نام کامل : '..(result.first_name or '')..' '..(result.last_name or '')..'\n'
                ..'یوزر: '..Username..'\n'
                ..'ایدی کاربری : '..result.id..'\n\n'
-  local hash = 'مقام:'..extra.chat2..':variables'
+  local hash = 'rank:'..extra.chat2..':variables'
   local value = redis:hget(hash, result.id)
   if not value then
 	 if result.id == tonumber(Dev) then
@@ -98,7 +98,7 @@ local function action_by_reply(extra, success, result)-- (reply) /info  function
     local text = 'نام کامل : '..(result.from.first_name or '')..' '..(result.from.last_name or '')..'\n'
                ..'یوزر: '..Username..'\n'
                ..'ایدی کاربری : '..result.from.id..'\n\n'
-	local hash = 'مقام:'..result.to.id..':variables'
+	local hash = 'rank:'..result.to.id..':variables'
 		local value = redis:hget(hash, result.from.id)
 		 if not value then
 		    if result.from.id == tonumber(Dev) then
@@ -131,11 +131,11 @@ setrank(result, result.from.id, value)
 end
 
 local function run(msg, matches)
- if matches[1]:lower() == 'تنظیم مقام' then
+ if matches[1]:lower() == 'setrank' then
   local hash = 'usecommands:'..msg.from.id..':'..msg.to.id
   redis:incr(hash)
   if not is_sudo(msg) then
-    return "Only for Sudo"
+    return "برای شما مچاز نیست"
   end
   local receiver = get_receiver(msg)
   local Reply = msg.reply_id
@@ -149,7 +149,7 @@ local function run(msg, matches)
 
   return text
   end
-end
+  end
  if matches[1]:lower() == 'اینفو' and not matches[2] then
   local receiver = get_receiver(msg)
   local Reply = msg.reply_id
@@ -165,7 +165,7 @@ end
    local text = text..'فامیل : '..(msg.from.last_name or 'ندارد')..'\n'	
    local text = text..'یوزر : '..Username..'\n'
    local text = text..'ایدی کاربری : '..msg.from.id..'\n\n'
-   local hash = 'مقام:'..msg.to.id..':variables'
+   local hash = 'rank:'..msg.to.id..':variables'
 	if hash then
 	  local value = redis:hget(hash, msg.from.id)
 	  if not value then
@@ -218,13 +218,13 @@ return {
 	'(Reply)اینفو: Return info of replied user if used by reply.',
 	'اینفو <id>: Return the info\'s of the <id>.',
 	'اینفو @<user_name>: Return the member @<user_name> information from the current chat.',
-	'تنظیم مقام <userid> <rank>: change members rank.',
-	'(Reply)تنظیم مقام <rank>: change members rank.',
+	'setrank <userid> <rank>: change members rank.',
+	'(Reply)setrank <rank>: change members rank.',
   },
   patterns = {
   	"^اینفو$",
-	"^تنظیم مقام (%d+) (.*)$",
-	"^تنظیم مقام (%d+) (.*)$",
+	"^([Ss]etrank) (%d+) (.*)$",
+	"^([Ss]etrank) (%d+) (.*)$",
   },
   run = run
 }
