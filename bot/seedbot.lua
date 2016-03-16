@@ -247,7 +247,7 @@ function create_config( )
     "invite",
     "welcome",
     "auto_leave",
-    "sendsticker",
+    "to_sticker",
     "time",
     "linkpv",
     "all",
