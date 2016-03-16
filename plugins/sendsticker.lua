@@ -1,14 +1,14 @@
 do
 
 function run(msg, matches)
-  if matches[1]:lower() == 'تبدیل' then -- Put everything you like :)
+  if matches[1]:lower() == 'تبدیل به استیکر' then -- Put everything you like :)
     send_document(get_receiver(msg), "./files/sticker.webp", ok_cb, false)
     return 'test'
   end
 end
 return {
   patterns = {
-    "^تبدیل$"
+    "^تبدیل به استیکر$"
   }, 
   run = run 
 }
