@@ -245,6 +245,7 @@ function create_config( )
     "lock_link",
     "invite",
     "welcome",
+    "sendsticker",
     "time",
     "linkpv",
     "all",
